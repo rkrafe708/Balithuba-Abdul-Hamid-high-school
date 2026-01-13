@@ -1,1 +1,734 @@
-# Balithuba-Abdul-Hamid-high-school
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Balithuba Abdul Hamid High School</title>
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Official website portal for Balithuba Abdul Hamid High School - students, teachers, classes, and results." />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <h1>Balithuba Abdul Hamid High School</h1>
+        <p class="tagline">Knowledge, Discipline & Progress</p>
+      </div>
+
+      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="mainNav">
+        <span class="hamburger"></span>
+        <span class="visually-hidden">Toggle navigation</span>
+      </button>
+
+      <nav id="mainNav" class="main-nav" role="navigation" aria-label="Main">
+        <ul>
+          <li><a href="#" data-section="home" class="nav-link active">Home</a></li>
+          <li><a href="#" data-section="teachers" class="nav-link">Teachers</a></li>
+          <li><a href="#" data-section="students" class="nav-link">Students</a></li>
+          <li><a href="#" data-section="results" class="nav-link">Results</a></li>
+          <li><a href="#" data-section="classes" class="nav-link">Classes</a></li>
+          <li><a href="#" data-section="contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <!-- Home -->
+    <section id="home" class="page-section active">
+      <div class="hero">
+        <h2>Welcome to Balithuba Abdul Hamid High School</h2>
+        <p>Dedicated to academic excellence, strong character building and community service.</p>
+        <div class="home-actions">
+          <a class="btn" href="#" data-section="students">View Students</a>
+          <a class="btn btn-outline" href="#" data-section="results">Check Results</a>
+        </div>
+      </div>
+
+      <div class="overview-cards">
+        <article class="card">
+          <h3>Our Teachers</h3>
+          <p>Qualified, experienced and committed staff providing holistic education.</p>
+        </article>
+        <article class="card">
+          <h3>Student Life</h3>
+          <p>Activities, classes and support to help students thrive in and out of the classroom.</p>
+        </article>
+        <article class="card">
+          <h3>Academic Results</h3>
+          <p>Transparent reporting of student results. Search by roll and class.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Teachers -->
+    <section id="teachers" class="page-section">
+      <div class="section-head">
+        <h2>Teachers</h2>
+        <p>Manage teacher records below.</p>
+      </div>
+
+      <div class="grid-two">
+        <div>
+          <form id="teacherForm" class="card form-card" aria-label="Add or edit teacher">
+            <h3 id="teacherFormTitle">Add Teacher</h3>
+
+            <label>
+              Name
+              <input type="text" id="teacherName" required />
+            </label>
+
+            <label>
+              Designation
+              <input type="text" id="teacherDesignation" required />
+            </label>
+
+            <label>
+              Contact Number
+              <input type="tel" id="teacherContact" pattern="[0-9+\- ]{6,20}" />
+            </label>
+
+            <label>
+              Subject
+              <input type="text" id="teacherSubject" required />
+            </label>
+
+            <div class="form-actions">
+              <button type="submit" class="btn">Save</button>
+              <button type="button" id="teacherReset" class="btn btn-outline">Reset</button>
+            </div>
+            <input type="hidden" id="teacherEditId" />
+          </form>
+        </div>
+
+        <div class="card table-card">
+          <h3>Teacher Directory</h3>
+          <div class="table-wrap">
+            <table id="teacherTable" class="striped">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Designation</th>
+                  <th>Contact</th>
+                  <th>Subject</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- populated by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Students -->
+    <section id="students" class="page-section">
+      <div class="section-head">
+        <h2>Students</h2>
+        <p>Manage student records and roll numbers.</p>
+      </div>
+
+      <div class="grid-two">
+        <div>
+          <form id="studentForm" class="card form-card" aria-label="Add or edit student">
+            <h3 id="studentFormTitle">Add Student</h3>
+
+            <label>
+              Name
+              <input type="text" id="studentName" required />
+            </label>
+
+            <label>
+              Roll Number
+              <input type="text" id="studentRoll" required />
+            </label>
+
+            <label>
+              Class
+              <select id="studentClass" required>
+                <option value="">Select Class</option>
+                <option value="6">Class 6</option>
+                <option value="7">Class 7</option>
+                <option value="8">Class 8</option>
+                <option value="9">Class 9</option>
+                <option value="10">Class 10</option>
+              </select>
+            </label>
+
+            <label>
+              Address
+              <textarea id="studentAddress" rows="3"></textarea>
+            </label>
+
+            <div class="form-actions">
+              <button type="submit" class="btn">Save</button>
+              <button type="button" id="studentReset" class="btn btn-outline">Reset</button>
+            </div>
+            <input type="hidden" id="studentEditId" />
+          </form>
+        </div>
+
+        <div class="card table-card">
+          <h3>Student Directory</h3>
+          <div class="table-wrap">
+            <table id="studentTable" class="striped">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Roll</th>
+                  <th>Class</th>
+                  <th>Address</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- populated by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section id="results" class="page-section">
+      <div class="section-head">
+        <h2>Results</h2>
+        <p>Search results by Roll Number and Class. Add new result entries below.</p>
+      </div>
+
+      <div class="grid-two">
+        <div class="card form-card">
+          <h3>Search Results</h3>
+          <label>
+            Class
+            <select id="resultSearchClass">
+              <option value="">Select Class</option>
+              <option value="6">Class 6</option>
+              <option value="7">Class 7</option>
+              <option value="8">Class 8</option>
+              <option value="9">Class 9</option>
+              <option value="10">Class 10</option>
+            </select>
+          </label>
+
+          <label>
+            Roll Number
+            <input type="text" id="resultSearchRoll" placeholder="Enter roll number" />
+          </label>
+
+          <div class="form-actions">
+            <button id="searchResultBtn" class="btn">Search</button>
+            <button id="clearResultBtn" class="btn btn-outline">Clear</button>
+          </div>
+
+          <div id="resultOutput" class="result-output" aria-live="polite"></div>
+        </div>
+
+        <div class="card form-card">
+          <h3>Add Result Record</h3>
+
+          <label>
+            Class
+            <select id="resultClass">
+              <option value="">Select Class</option>
+              <option value="6">Class 6</option>
+              <option value="7">Class 7</option>
+              <option value="8">Class 8</option>
+              <option value="9">Class 9</option>
+              <option value="10">Class 10</option>
+            </select>
+          </label>
+
+          <label>
+            Roll Number
+            <input type="text" id="resultRoll" />
+          </label>
+
+          <label>
+            Subject Marks (JSON format)
+            <textarea id="resultMarks" rows="4" placeholder='{"Bangla":85,"English":78,"Math":92}'></textarea>
+          </label>
+
+          <div class="form-actions">
+            <button id="addResultBtn" class="btn">Add/Update Result</button>
+          </div>
+
+          <small class="muted">Enter marks as JSON object (subject: marks). The system stores total and calculates percentage.</small>
+        </div>
+      </div>
+
+      <div class="card table-card">
+        <h3>All Results</h3>
+        <div class="table-wrap">
+          <table id="resultsTable" class="striped">
+            <thead>
+              <tr>
+                <th>Class</th>
+                <th>Roll</th>
+                <th>Total</th>
+                <th>Percentage</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody><!-- populated by JS --></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Classes -->
+    <section id="classes" class="page-section">
+      <div class="section-head">
+        <h2>Classes (6–10)</h2>
+        <p>View student lists by class.</p>
+      </div>
+
+      <div class="classes-grid">
+        <div class="class-card" data-class="6">
+          <h4>Class 6</h4>
+          <ul class="student-list" id="class6List"></ul>
+        </div>
+
+        <div class="class-card" data-class="7">
+          <h4>Class 7</h4>
+          <ul class="student-list" id="class7List"></ul>
+        </div>
+
+        <div class="class-card" data-class="8">
+          <h4>Class 8</h4>
+          <ul class="student-list" id="class8List"></ul>
+        </div>
+
+        <div class="class-card" data-class="9">
+          <h4>Class 9</h4>
+          <ul class="student-list" id="class9List"></ul>
+        </div>
+
+        <div class="class-card" data-class="10">
+          <h4>Class 10</h4>
+          <ul class="student-list" id="class10List"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="page-section">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p>Get in touch with Balithuba Abdul Hamid High School.</p>
+      </div>
+
+      <div class="grid-two">
+        <div class="card">
+          <h3>School Office</h3>
+          <p><strong>Address:</strong> Balithuba, [District], [Country]</p>
+          <p><strong>Phone:</strong> +880-1XXXXXXXXX</p>
+          <p><strong>Email:</strong> info@balithubahigh.edu</p>
+        </div>
+
+        <div class="card">
+          <h3>Message</h3>
+          <form id="contactForm">
+            <label>
+              Your Name
+              <input type="text" id="contactName" required />
+            </label>
+
+            <label>
+              Your Email
+              <input type="email" id="contactEmail" required />
+            </label>
+
+            <label>
+              Message
+              <textarea id="contactMessage" rows="4" required></textarea>
+            </label>
+
+            <div class="form-actions">
+              <button class="btn" type="submit">Send</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Balithuba Abdul Hamid High School — All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html><!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Balithuba Abdul Hamid High School</title>
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Official website portal for Balithuba Abdul Hamid High School - students, teachers, classes, and results." />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <h1>Balithuba Abdul Hamid High School</h1>
+        <p class="tagline">Knowledge, Discipline & Progress</p>
+      </div>
+
+      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="mainNav">
+        <span class="hamburger"></span>
+        <span class="visually-hidden">Toggle navigation</span>
+      </button>
+
+      <nav id="mainNav" class="main-nav" role="navigation" aria-label="Main">
+        <ul>
+          <li><a href="#" data-section="home" class="nav-link active">Home</a></li>
+          <li><a href="#" data-section="teachers" class="nav-link">Teachers</a></li>
+          <li><a href="#" data-section="students" class="nav-link">Students</a></li>
+          <li><a href="#" data-section="results" class="nav-link">Results</a></li>
+          <li><a href="#" data-section="classes" class="nav-link">Classes</a></li>
+          <li><a href="#" data-section="contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <!-- Home -->
+    <section id="home" class="page-section active">
+      <div class="hero">
+        <h2>Welcome to Balithuba Abdul Hamid High School</h2>
+        <p>Dedicated to academic excellence, strong character building and community service.</p>
+        <div class="home-actions">
+          <a class="btn" href="#" data-section="students">View Students</a>
+          <a class="btn btn-outline" href="#" data-section="results">Check Results</a>
+        </div>
+      </div>
+
+      <div class="overview-cards">
+        <article class="card">
+          <h3>Our Teachers</h3>
+          <p>Qualified, experienced and committed staff providing holistic education.</p>
+        </article>
+        <article class="card">
+          <h3>Student Life</h3>
+          <p>Activities, classes and support to help students thrive in and out of the classroom.</p>
+        </article>
+        <article class="card">
+          <h3>Academic Results</h3>
+          <p>Transparent reporting of student results. Search by roll and class.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Teachers -->
+    <section id="teachers" class="page-section">
+      <div class="section-head">
+        <h2>Teachers</h2>
+        <p>Manage teacher records below.</p>
+      </div>
+
+      <div class="grid-two">
+        <div>
+          <form id="teacherForm" class="card form-card" aria-label="Add or edit teacher">
+            <h3 id="teacherFormTitle">Add Teacher</h3>
+
+            <label>
+              Name
+              <input type="text" id="teacherName" required />
+            </label>
+
+            <label>
+              Designation
+              <input type="text" id="teacherDesignation" required />
+            </label>
+
+            <label>
+              Contact Number
+              <input type="tel" id="teacherContact" pattern="[0-9+\- ]{6,20}" />
+            </label>
+
+            <label>
+              Subject
+              <input type="text" id="teacherSubject" required />
+            </label>
+
+            <div class="form-actions">
+              <button type="submit" class="btn">Save</button>
+              <button type="button" id="teacherReset" class="btn btn-outline">Reset</button>
+            </div>
+            <input type="hidden" id="teacherEditId" />
+          </form>
+        </div>
+
+        <div class="card table-card">
+          <h3>Teacher Directory</h3>
+          <div class="table-wrap">
+            <table id="teacherTable" class="striped">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Designation</th>
+                  <th>Contact</th>
+                  <th>Subject</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- populated by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Students -->
+    <section id="students" class="page-section">
+      <div class="section-head">
+        <h2>Students</h2>
+        <p>Manage student records and roll numbers.</p>
+      </div>
+
+      <div class="grid-two">
+        <div>
+          <form id="studentForm" class="card form-card" aria-label="Add or edit student">
+            <h3 id="studentFormTitle">Add Student</h3>
+
+            <label>
+              Name
+              <input type="text" id="studentName" required />
+            </label>
+
+            <label>
+              Roll Number
+              <input type="text" id="studentRoll" required />
+            </label>
+
+            <label>
+              Class
+              <select id="studentClass" required>
+                <option value="">Select Class</option>
+                <option value="6">Class 6</option>
+                <option value="7">Class 7</option>
+                <option value="8">Class 8</option>
+                <option value="9">Class 9</option>
+                <option value="10">Class 10</option>
+              </select>
+            </label>
+
+            <label>
+              Address
+              <textarea id="studentAddress" rows="3"></textarea>
+            </label>
+
+            <div class="form-actions">
+              <button type="submit" class="btn">Save</button>
+              <button type="button" id="studentReset" class="btn btn-outline">Reset</button>
+            </div>
+            <input type="hidden" id="studentEditId" />
+          </form>
+        </div>
+
+        <div class="card table-card">
+          <h3>Student Directory</h3>
+          <div class="table-wrap">
+            <table id="studentTable" class="striped">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Roll</th>
+                  <th>Class</th>
+                  <th>Address</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- populated by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section id="results" class="page-section">
+      <div class="section-head">
+        <h2>Results</h2>
+        <p>Search results by Roll Number and Class. Add new result entries below.</p>
+      </div>
+
+      <div class="grid-two">
+        <div class="card form-card">
+          <h3>Search Results</h3>
+          <label>
+            Class
+            <select id="resultSearchClass">
+              <option value="">Select Class</option>
+              <option value="6">Class 6</option>
+              <option value="7">Class 7</option>
+              <option value="8">Class 8</option>
+              <option value="9">Class 9</option>
+              <option value="10">Class 10</option>
+            </select>
+          </label>
+
+          <label>
+            Roll Number
+            <input type="text" id="resultSearchRoll" placeholder="Enter roll number" />
+          </label>
+
+          <div class="form-actions">
+            <button id="searchResultBtn" class="btn">Search</button>
+            <button id="clearResultBtn" class="btn btn-outline">Clear</button>
+          </div>
+
+          <div id="resultOutput" class="result-output" aria-live="polite"></div>
+        </div>
+
+        <div class="card form-card">
+          <h3>Add Result Record</h3>
+
+          <label>
+            Class
+            <select id="resultClass">
+              <option value="">Select Class</option>
+              <option value="6">Class 6</option>
+              <option value="7">Class 7</option>
+              <option value="8">Class 8</option>
+              <option value="9">Class 9</option>
+              <option value="10">Class 10</option>
+            </select>
+          </label>
+
+          <label>
+            Roll Number
+            <input type="text" id="resultRoll" />
+          </label>
+
+          <label>
+            Subject Marks (JSON format)
+            <textarea id="resultMarks" rows="4" placeholder='{"Bangla":85,"English":78,"Math":92}'></textarea>
+          </label>
+
+          <div class="form-actions">
+            <button id="addResultBtn" class="btn">Add/Update Result</button>
+          </div>
+
+          <small class="muted">Enter marks as JSON object (subject: marks). The system stores total and calculates percentage.</small>
+        </div>
+      </div>
+
+      <div class="card table-card">
+        <h3>All Results</h3>
+        <div class="table-wrap">
+          <table id="resultsTable" class="striped">
+            <thead>
+              <tr>
+                <th>Class</th>
+                <th>Roll</th>
+                <th>Total</th>
+                <th>Percentage</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody><!-- populated by JS --></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Classes -->
+    <section id="classes" class="page-section">
+      <div class="section-head">
+        <h2>Classes (6–10)</h2>
+        <p>View student lists by class.</p>
+      </div>
+
+      <div class="classes-grid">
+        <div class="class-card" data-class="6">
+          <h4>Class 6</h4>
+          <ul class="student-list" id="class6List"></ul>
+        </div>
+
+        <div class="class-card" data-class="7">
+          <h4>Class 7</h4>
+          <ul class="student-list" id="class7List"></ul>
+        </div>
+
+        <div class="class-card" data-class="8">
+          <h4>Class 8</h4>
+          <ul class="student-list" id="class8List"></ul>
+        </div>
+
+        <div class="class-card" data-class="9">
+          <h4>Class 9</h4>
+          <ul class="student-list" id="class9List"></ul>
+        </div>
+
+        <div class="class-card" data-class="10">
+          <h4>Class 10</h4>
+          <ul class="student-list" id="class10List"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="page-section">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p>Get in touch with Balithuba Abdul Hamid High School.</p>
+      </div>
+
+      <div class="grid-two">
+        <div class="card">
+          <h3>School Office</h3>
+          <p><strong>Address:</strong> Balithuba, [District], [Country]</p>
+          <p><strong>Phone:</strong> +880-1XXXXXXXXX</p>
+          <p><strong>Email:</strong> info@balithubahigh.edu</p>
+        </div>
+
+        <div class="card">
+          <h3>Message</h3>
+          <form id="contactForm">
+            <label>
+              Your Name
+              <input type="text" id="contactName" required />
+            </label>
+
+            <label>
+              Your Email
+              <input type="email" id="contactEmail" required />
+            </label>
+
+            <label>
+              Message
+              <textarea id="contactMessage" rows="4" required></textarea>
+            </label>
+
+            <div class="form-actions">
+              <button class="btn" type="submit">Send</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Balithuba Abdul Hamid High School — All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html
